@@ -261,24 +261,6 @@ from customers
 left join orders
 using (customer_id);
 
-use ecommerce;
-# Q. join shipping_detials to anyother table using right join
-select * from  orders
-right join shipping_details
-using(order_id);
-
-# join 3 tables customers, orders, and order_items
-select * 
-from customers as c
-join orders as o
-on c.customer_id = o.customer_id
-join order_items as oi
-on o.order_id = oi.order_id;
-
-/* select * 
-from customers as c
-join orders as o
-on c.customer_id = o.customer_id */   # now this entire table will be considered as left table
 
 # Q. Fetch the customer_id, status, and final price that they have paid
 select c.customer_id, status, round(sum(total_amount)) as amt_paid
@@ -289,70 +271,6 @@ join order_items as oi
 on o.order_id = oi.order_id
 group by c.customer_id, status
 order by o.customer_id desc;
-
-# round(sum(total_amount) -- round off the values
--- Sql uses the ROUND() functions to display numeric values rounded to a specified precision.
--- The precision parameter indicates the number of decimal places to which the number should be rounded.
-/* Write a query to round the **Taxable_Pay** to 2 decimal place from the table employee. 
-select round(Taxable_Pay, 2) as Taxable_Pay
-from employee;  */
-
-/* output the minimum and maximum value of payout, round to 2 decimal places. 
-select round(min(Payout), 2) as 'min_pay',
-    round(max(Payout), 2) as 'max_pay'
-from employee;      */
-
-# CROSS JOIN
-select * from products
-cross join categories;
-
-# in cross join if we use ON and USING statement it will work like INNER JOIN
-select * from products
-cross join categories
-using (category_id);
-
-# NATURAL JOIN 
-# matching columns -- INNER JOIN
-# NO matching columns are found is will perform -- CROSS JOIN
-# should not give the clauses 
-select * from products
-natural join categories;
-
-/* UNION - UNION is a set operation in SQL that combines the result of two or more SELECT statments into a single result set.
--- The result set combines all the distinct rows from all the select statements. eliminating any duplicates.
--- number of coluumns should be same in both the table
-
-SELECT column1, column2, column3 from table1
-UNION
-SELECT column1, column2, column3 from table2 */
-
-select description, product_name from products
-union
-select category_name, category_id from categories;
-
-select * from products
-where product_name = 'Laptop'
-union
-select * from products
-where description like "%programming%";
-
-/* INTERSECT - INTERSECT is a set operation is SQL that returns only the distinct 
- rows that apper in both result set.
-SELECT column1, column2, column3 from table1
-INTERSECT
-SELECT column1, column2, column3 from table2 */
-
-
-/* MYSQL SUBQUERY -----------------------------------------------
-SELECT column1, column2
-FROM table1
-WHERE column1 IN (SELECT column1 FROM table2 where column1 = 'value')
-
-A correlated subquery depends on the outer query for its values.
-It is executed repeatedly, once for each row of the outer query.
-
-A non-correlated subquery is independent of the outer query. It is executed only once, 
-and its result is reused by the outer query. */
 
 # Q. Find customer whose payments are greater than the average payment using a subquery
 # Classicmodel

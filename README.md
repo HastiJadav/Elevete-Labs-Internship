@@ -1,19 +1,45 @@
 # Elevete-Labs-Internship
 
+# Task 1- Data Preprocessing - Big Mart Sales Dataset
+
+**Overview**
+This project focuses on performing **Exploratory Data Analysis (EDA)** and preprocessing of the Big Mart Sales dataset to prepare it for further analysis or machine learning tasks. The goal was to handle missing values and outliers to ensure data integrity and improve the reliability of future predictions.
+
+**Data Cleaning Steps:**
+1. **Handling Missing Values:**
+   - **Categorical Column:** Missing values were imputed with the **mode** (most frequent value) to ensure consistency in categorical columns.
+   - **Numerical Column:** Missing values were filled with the **mean** of the respective column to ensure no loss of data while maintaining numerical consistency.
+
+2. **Handling Outliers:**
+   - **Outliers Detection:** Outliers were identified in the following columns:
+     - **Item_Visibility**
+     - **Item_Outlet_Sales**
+   - **Outlier Handling:** The **Interquartile Range (IQR)** method was used to detect and remove outliers in the numerical columns. Data points that fell outside the range of `Q1 - 1.5 * IQR` and `Q3 + 1.5 * IQR` were treated to ensure the dataset was not distorted by extreme values.
+
+***Data Sources:***
+The dataset used in this analysis is **Big Mart Sales Dataset**, which includes details about sales transactions in a big mart across multiple outlets.
+
+**Tools & Libraries Used:**
+- **Pandas**: For data manipulation and handling missing values.
+- **Numpy**: For numerical operations.
+- **Matplotlib/Seaborn**: For visualizing distributions and outliers.
+
+
+
 ## Task 2: Superstore Data Visualization and Storytelling
 
-### 📌 Objective:
+**📌 Objective:**
 Create impactful visualizations to uncover key insights and tell a compelling data-driven story.
 
-### 📊 Tools Used:
+**📊 Tools Used:**
 - Power BI / Tableau
 
-### 📈 Key Highlights:
+**📈 Key Highlights:**
 - Analyzed sales, profit, and customer segments across different regions and categories.
 - Identified top-performing and underperforming products.
 - Visual storytelling to showcase trends, patterns, and business opportunities.
 
-## 📁 Deliverables:
+**📁 Deliverables:**
 - Visual report (PDF / Dashboard screenshots)
  ![image](https://github.com/user-attachments/assets/17839cee-c2a7-47d9-9872-be7248318adb)
 ![image](https://github.com/user-attachments/assets/8ed69577-03f4-4c22-bc8e-35f8f8677f3b)
